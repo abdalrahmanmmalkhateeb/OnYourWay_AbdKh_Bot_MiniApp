@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>على طريقك - اختيار البيانات</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Telegram Mini App SDK -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+
+<body>
+  <main class="app">
+    <header class="header">
+      <h1>على طريقك</h1>
+      <p>اختر السيارة والمنطقة بسرعة</p>
+    </header>
+
+    <section class="card">
+      <h2>1. ماركة السيارة</h2>
+      <input id="brandSearch" class="search" type="text" placeholder="ابحث عن الماركة..." />
+      <div id="brandList" class="list"></div>
+    </section>
+
+    <section class="card hidden" id="modelSection">
+      <h2>2. موديل السيارة</h2>
+      <input id="modelSearch" class="search" type="text" placeholder="ابحث عن الموديل..." />
+      <div id="modelList" class="list"></div>
+    </section>
+
+    <section class="card hidden" id="yearSection">
+      <h2>3. سنة السيارة</h2>
+      <select id="yearSelect" class="select">
+        <option value="">اختر السنة</option>
+      </select>
+    </section>
+
+    <section class="card">
+      <h2>4. المدينة</h2>
+      <div id="cityList" class="list"></div>
+    </section>
+
+    <section class="card hidden" id="areaSection">
+      <h2>5. المنطقة</h2>
+      <input id="areaSearch" class="search" type="text" placeholder="ابحث عن المنطقة..." />
+      <div id="areaList" class="list"></div>
+    </section>
+
+    <section class="card summary">
+      <h2>الاختيارات الحالية</h2>
+
+      <div class="summary-row">
+        <span>السيارة:</span>
+        <strong id="carSummary">غير محدد</strong>
+      </div>
+
+      <div class="summary-row">
+        <span>المنطقة:</span>
+        <strong id="areaSummary">غير محدد</strong>
+      </div>
+    </section>
+
+    <button id="submitBtn" class="submit">تأكيد الاختيار</button>
+
+    <p id="status" class="status"></p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

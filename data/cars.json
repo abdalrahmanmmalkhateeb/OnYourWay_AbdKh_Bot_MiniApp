@@ -1,0 +1,83 @@
+{
+  "Hyundai": [
+    "Accent",
+    "Avante",
+    "Elantra",
+    "Sonata",
+    "Tucson",
+    "Santa Fe",
+    "Verna",
+    "Getz"
+  ],
+  "Kia": [
+    "Rio",
+    "Cerato",
+    "Spectra",
+    "Picanto",
+    "Sportage",
+    "Optima",
+    "Sorento"
+  ],
+  "Mazda": [
+    "Mazda 2",
+    "Mazda 3",
+    "Mazda 6",
+    "CX-3",
+    "CX-5",
+    "323",
+    "626"
+  ],
+  "Toyota": [
+    "Corolla",
+    "Camry",
+    "Yaris",
+    "Rav4",
+    "Land Cruiser",
+    "Prado",
+    "Hiace"
+  ],
+  "Nissan": [
+    "Sunny",
+    "Sentra",
+    "Altima",
+    "Maxima",
+    "X-Trail",
+    "Patrol",
+    "Tiida"
+  ],
+  "Mitsubishi": [
+    "Lancer",
+    "Galant",
+    "Pajero",
+    "Outlander",
+    "L200"
+  ],
+  "Chevrolet": [
+    "Aveo",
+    "Cruze",
+    "Optra",
+    "Spark",
+    "Captiva",
+    "Tahoe"
+  ],
+  "Daewoo": [
+    "Lanos",
+    "Nubira",
+    "Leganza",
+    "Matiz"
+  ],
+  "Suzuki": [
+    "Swift",
+    "Ciaz",
+    "Vitara",
+    "Alto",
+    "Baleno"
+  ],
+  "Renault": [
+    "Logan",
+    "Symbol",
+    "Megane",
+    "Duster",
+    "Fluence"
+  ]
+}
