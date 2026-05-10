@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>اختيار السيارة</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="page-header">
+      <a class="back-link" href="index.html">الرئيسية</a>
+      <h1>اختيار السيارة</h1>
+    </header>
+
+    <section class="panel">
+      <p id="loadError" class="notice error" hidden>تعذر تحميل بيانات السيارات.</p>
+
+      <div class="field-group">
+        <label for="brandSearch">شركة السيارة</label>
+        <input id="brandSearch" type="search" autocomplete="off" placeholder="ابحث عن الشركة">
+        <div id="brandList" class="option-list" role="listbox" aria-label="نتائج شركات السيارات"></div>
+      </div>
+
+      <div class="field-group">
+        <label for="modelSearch">موديل السيارة</label>
+        <input id="modelSearch" type="search" autocomplete="off" placeholder="اختر الشركة أولاً" disabled>
+        <div id="modelList" class="option-list" role="listbox" aria-label="نتائج موديلات السيارات"></div>
+      </div>
+
+      <div class="field-group">
+        <label for="yearSelect">سنة الصنع</label>
+        <select id="yearSelect">
+          <option value="">اختر السنة</option>
+        </select>
+      </div>
+
+      <section class="summary" aria-live="polite">
+        <h2>القيم المختارة</h2>
+        <dl>
+          <div>
+            <dt>الشركة</dt>
+            <dd id="summaryBrand">لم يتم الاختيار</dd>
+          </div>
+          <div>
+            <dt>الموديل</dt>
+            <dd id="summaryModel">لم يتم الاختيار</dd>
+          </div>
+          <div>
+            <dt>السنة</dt>
+            <dd id="summaryYear">لم يتم الاختيار</dd>
+          </div>
+        </dl>
+      </section>
+
+      <button id="submitButton" class="button submit-button" type="button" disabled>تأكيد الاختيار</button>
+
+      <section id="browserFallback" class="fallback" hidden>
+        <p id="fallbackStatus">تم تجهيز JSON للاختبار.</p>
+        <pre id="fallbackOutput"></pre>
+        <button id="copyButton" class="button button-secondary" type="button">نسخ JSON</button>
+      </section>
+    </section>
+  </main>
+
+  <script src="shared.js" defer></script>
+  <script src="car.js" defer></script>
+</body>
+</html>

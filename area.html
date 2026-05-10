@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>اختيار المنطقة</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="page-header">
+      <a class="back-link" href="index.html">الرئيسية</a>
+      <h1>اختيار المنطقة</h1>
+    </header>
+
+    <section class="panel">
+      <p id="loadError" class="notice error" hidden>تعذر تحميل بيانات المناطق.</p>
+
+      <div class="field-group">
+        <label for="citySearch">المدينة</label>
+        <input id="citySearch" type="search" autocomplete="off" placeholder="ابحث عن المدينة">
+        <div id="cityList" class="option-list" role="listbox" aria-label="نتائج المدن"></div>
+      </div>
+
+      <div class="field-group">
+        <label for="areaSearch">المنطقة</label>
+        <input id="areaSearch" type="search" autocomplete="off" placeholder="اختر المدينة أولاً" disabled>
+        <div id="areaList" class="option-list" role="listbox" aria-label="نتائج المناطق"></div>
+      </div>
+
+      <section class="summary" aria-live="polite">
+        <h2>القيم المختارة</h2>
+        <dl>
+          <div>
+            <dt>المدينة</dt>
+            <dd id="summaryCity">لم يتم الاختيار</dd>
+          </div>
+          <div>
+            <dt>المنطقة</dt>
+            <dd id="summaryArea">لم يتم الاختيار</dd>
+          </div>
+        </dl>
+      </section>
+
+      <button id="submitButton" class="button submit-button" type="button" disabled>تأكيد الاختيار</button>
+
+      <section id="browserFallback" class="fallback" hidden>
+        <p id="fallbackStatus">تم تجهيز JSON للاختبار.</p>
+        <pre id="fallbackOutput"></pre>
+        <button id="copyButton" class="button button-secondary" type="button">نسخ JSON</button>
+      </section>
+    </section>
+  </main>
+
+  <script src="shared.js" defer></script>
+  <script src="area.js" defer></script>
+</body>
+</html>
