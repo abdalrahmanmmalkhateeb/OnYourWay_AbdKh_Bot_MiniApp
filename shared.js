@@ -70,13 +70,14 @@
 
   async function showBrowserFallback(payload, elements) {
     const json = JSON.stringify(payload);
+    const fallbackMessage = "وضع الاختبار: لم يتم فتح الصفحة من داخل Telegram Mini App.";
     elements.output.textContent = json;
     elements.wrapper.hidden = false;
 
     const copied = await copyToClipboard(json);
     elements.status.textContent = copied
-      ? "تم تجهيز JSON للاختبار ونسخه."
-      : "تم تجهيز JSON للاختبار. يمكن نسخه يدوياً.";
+      ? `${fallbackMessage} تم تجهيز JSON للاختبار ونسخه.`
+      : `${fallbackMessage} تم تجهيز JSON للاختبار. يمكن نسخه يدوياً.`;
 
     elements.copyButton.onclick = async () => {
       const didCopy = await copyToClipboard(json);
