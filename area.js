@@ -4,6 +4,8 @@ const areaState = {
   area: "",
 };
 
+const areaCollator = new Intl.Collator("ar", { numeric: true });
+
 const areaElements = {
   loadError: document.getElementById("loadError"),
   citySearch: document.getElementById("citySearch"),
@@ -82,7 +84,7 @@ function validateAreaData(data) {
 }
 
 function renderCities() {
-  const cities = Object.keys(areaState.areas).sort((a, b) => a.localeCompare(b, "ar"));
+  const cities = Object.keys(areaState.areas).sort((a, b) => areaCollator.compare(a, b));
   const matches = MiniApp.filterValues(cities, areaElements.citySearch.value);
   MiniApp.renderOptions(
     areaElements.cityList,
@@ -99,7 +101,7 @@ function renderAreas() {
     return;
   }
 
-  const areas = [...areaState.areas[areaState.city]].sort((a, b) => a.localeCompare(b, "ar"));
+  const areas = [...areaState.areas[areaState.city]].sort((a, b) => areaCollator.compare(a, b));
   const matches = MiniApp.filterValues(areas, areaElements.areaSearch.value);
   MiniApp.renderOptions(
     areaElements.areaList,
