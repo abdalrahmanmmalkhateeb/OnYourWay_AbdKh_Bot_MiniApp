@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <title>اختيار التاريخ والوقت</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="page-header">
+      <a class="back-link" href="index.html">الرئيسية</a>
+      <h1>اختيار التاريخ والوقت</h1>
+    </header>
+
+    <section class="panel">
+      <div class="field-group">
+        <label for="dateTimeInput">اليوم والوقت</label>
+        <input id="dateTimeInput" type="datetime-local" autocomplete="off">
+        <p class="field-hint">اختر موعداً لاحقاً لإرساله إلى البوت.</p>
+      </div>
+
+      <section class="summary" aria-live="polite">
+        <h2>القيمة المختارة</h2>
+        <dl>
+          <div>
+            <dt>التاريخ والوقت</dt>
+            <dd id="summaryDateTime">لم يتم الاختيار</dd>
+          </div>
+        </dl>
+      </section>
+
+      <button id="submitButton" class="button submit-button" type="button" disabled>تأكيد الاختيار</button>
+
+      <section id="browserFallback" class="fallback" hidden>
+        <p id="fallbackStatus">تم تجهيز JSON للاختبار.</p>
+        <pre id="fallbackOutput"></pre>
+        <button id="copyButton" class="button button-secondary" type="button">نسخ JSON</button>
+      </section>
+    </section>
+  </main>
+
+  <script src="shared.js" defer></script>
+  <script src="date.js" defer></script>
+</body>
+</html>
