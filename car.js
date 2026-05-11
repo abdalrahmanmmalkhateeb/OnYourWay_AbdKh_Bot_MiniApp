@@ -5,6 +5,8 @@ const carState = {
   year: "",
 };
 
+const fallbackOption = "Other";
+
 const carElements = {
   loadError: document.getElementById("loadError"),
   brandSearch: document.getElementById("brandSearch"),
@@ -103,7 +105,11 @@ function fillYearOptions() {
 
 function renderBrands() {
   const brands = Object.keys(carState.cars).sort((a, b) => a.localeCompare(b, "ar"));
-  const matches = MiniApp.filterValues(brands, carElements.brandSearch.value);
+  const matches = withFallbackOption(
+    brands,
+    MiniApp.filterValues(brands, carElements.brandSearch.value),
+    carElements.brandSearch.value,
+  );
   MiniApp.renderOptions(
     carElements.brandList,
     matches,
@@ -120,7 +126,11 @@ function renderModels() {
   }
 
   const models = [...carState.cars[carState.brand]].sort((a, b) => a.localeCompare(b, "ar"));
-  const matches = MiniApp.filterValues(models, carElements.modelSearch.value);
+  const matches = withFallbackOption(
+    models,
+    MiniApp.filterValues(models, carElements.modelSearch.value),
+    carElements.modelSearch.value,
+  );
   MiniApp.renderOptions(
     carElements.modelList,
     matches,
@@ -128,6 +138,14 @@ function renderModels() {
     selectModel,
     "لا توجد موديلات مطابقة.",
   );
+}
+
+function withFallbackOption(values, matches, query) {
+  if (!String(query || "").trim() || matches.length > 0 || !values.includes(fallbackOption)) {
+    return matches;
+  }
+
+  return [fallbackOption];
 }
 
 function selectBrand(brand) {
