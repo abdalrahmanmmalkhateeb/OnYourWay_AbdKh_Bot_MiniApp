@@ -1,3 +1,5 @@
+// Date/time selection page state and payload construction.
+// Keep the submitted keys compatible with the Telegram bot: type, datetime, date, time.
 const dateState = {
   datetime: "",
   date: "",
@@ -39,6 +41,7 @@ dateElements.submitButton.addEventListener("click", () => {
   );
 });
 
+// Accepts only valid future datetime-local values and derives the bot payload fields.
 function setSelectedDateTime(value) {
   const selectedDate = parseDateTimeLocalValue(value);
 

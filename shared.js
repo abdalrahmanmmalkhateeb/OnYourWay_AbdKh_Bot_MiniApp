@@ -1,6 +1,7 @@
 (function () {
   const unselectedText = "لم يتم الاختيار";
 
+  // Telegram SDK access stays centralized so page scripts only build payloads.
   function getTelegramApp() {
     return window.Telegram?.WebApp;
   }
@@ -19,6 +20,7 @@
       .toLocaleLowerCase("ar");
   }
 
+  // Shared search and option rendering used by the car and area selectors.
   function filterValues(values, query) {
     const term = normalizeText(query);
     if (!term) {
@@ -68,6 +70,7 @@
     }
   }
 
+  // Browser fallback preserves the exact JSON payload for manual testing outside Telegram.
   async function showBrowserFallback(payload, elements) {
     const json = JSON.stringify(payload);
     const fallbackMessage = "وضع الاختبار: لم يتم فتح الصفحة من داخل Telegram Mini App.";
@@ -85,6 +88,7 @@
     };
   }
 
+  // Page scripts define payload fields; this helper only serializes and submits them.
   function submitPayload(payload, fallbackElements) {
     const app = getTelegramApp();
     if (app?.sendData) {

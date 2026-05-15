@@ -1,3 +1,5 @@
+// Area selection page state and payload construction.
+// Keep the submitted keys compatible with the Telegram bot: type, city, area.
 const areaState = {
   areas: {},
   city: "",
@@ -52,6 +54,7 @@ areaElements.submitButton.addEventListener("click", () => {
   );
 });
 
+// areas.json is the UI allowlist. Bot-side validation must be kept in sync separately.
 async function loadAreas() {
   try {
     const response = await fetch("data/areas.json", { cache: "no-store" });
@@ -71,6 +74,7 @@ async function loadAreas() {
   }
 }
 
+// The current data contract is an object where each city maps to an array of areas.
 function validateAreaData(data) {
   const valid =
     data &&
@@ -83,6 +87,7 @@ function validateAreaData(data) {
   }
 }
 
+// City and area options are sorted with Arabic collation and numeric ordering.
 function renderCities() {
   const cities = Object.keys(areaState.areas).sort((a, b) => areaCollator.compare(a, b));
   const matches = MiniApp.filterValues(cities, areaElements.citySearch.value);

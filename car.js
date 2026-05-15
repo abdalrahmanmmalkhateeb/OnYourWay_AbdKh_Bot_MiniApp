@@ -1,3 +1,5 @@
+// Car selection page state and payload construction.
+// Keep the submitted keys compatible with the Telegram bot: type, brand, model, year.
 const carState = {
   cars: {},
   brand: "",
@@ -62,6 +64,7 @@ carElements.submitButton.addEventListener("click", () => {
   );
 });
 
+// cars.json is the UI allowlist. Bot-side validation must be kept in sync separately.
 async function loadCars() {
   try {
     const response = await fetch("data/cars.json", { cache: "no-store" });
@@ -81,6 +84,7 @@ async function loadCars() {
   }
 }
 
+// The current data contract is an object where each brand maps to an array of models.
 function validateCarData(data) {
   const valid =
     data &&
@@ -93,6 +97,7 @@ function validateCarData(data) {
   }
 }
 
+// Years are generated at runtime from the current local year down to 1980.
 function fillYearOptions() {
   const currentYear = new Date().getFullYear();
   for (let year = currentYear; year >= 1980; year -= 1) {
@@ -140,6 +145,7 @@ function renderModels() {
   );
 }
 
+// If the data includes "Other", expose it when a non-empty search has no exact matches.
 function withFallbackOption(values, matches, query) {
   if (!String(query || "").trim() || matches.length > 0 || !values.includes(fallbackOption)) {
     return matches;
